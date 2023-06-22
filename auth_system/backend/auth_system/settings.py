@@ -6,7 +6,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-!2pjarrc3o9!ow^+15u0lr@5e5p!&$ccamu(0(a!!uo8+*346!'
@@ -28,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'djoser',
     'rest_framework',
-    'account',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +62,6 @@ WSGI_APPLICATION = 'auth_system.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -73,15 +71,14 @@ DATABASES = {
 }
 
 # EMAIL CONFIGURATION
-EMAIL_BACKEND = 'django.core.mail.backend.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'asieduceci.coun@gmail.com'
-EMAIL_HOST_PASSWORD = 'qNewpynletooydomjty'
+EMAIL_HOST_PASSWORD = 'qpynletooydomjty'
 EMAIL_USE_TLS = True
 
 # Password validation
-# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -100,7 +97,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -112,7 +108,6 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
@@ -141,19 +136,18 @@ DJOSER = {
     'SET_PASSWORD_RETYPE': True,
     'PASSWORD_RESET_CONFIRM_URL': 'password-reset/{uid}/{token}',
     'USERNAME_RESET_CONFIRM_URL' : 'email-reset/{uid}/{token}',
-    'ACTIVATION_UR': 'activate/{uid}/{token}',
+    'ACTIVATION_URL': 'activate/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL': True,
     'SERIALIZERS': {
-        'user_create': 'account.serializers.UserCreateSerializer',
-        'user': 'account.serializers.UserCreateSerializer',
-        'user_delete': 'account.serializers.UserDeleteSerializer',
+        'user_create': 'accounts.serializers.UserCreateSerializer',
+        'user': 'accounts.serializers.UserCreateSerializer',
+        'user_delete': 'accounts.serializers.UserDeleteSerializer',
     }
 
 }
 
-AUTH_SYSTEM_MODEL = 'account.UserAccount'
+AUTH_USER_MODEL = 'accounts.UserAccount'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
