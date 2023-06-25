@@ -1,1 +1,1 @@
-# Auth system
+# Authentication system
