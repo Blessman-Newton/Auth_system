@@ -1,0 +1,13 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    background: #cdf;
+    font-size: 70px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    color: black;
+}
